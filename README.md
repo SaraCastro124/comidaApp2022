@@ -1,5 +1,4 @@
 ![main build.NET5](https://github.com/SaraCastro124/comidaApp2022/workflows/main-build.NET5/badge.svg?branch=main) ![main test.NET5](https://github.com/SaraCastro124/comidaApp2022/workflows/main-test.NET5/badge.svg?branch=main)
-![dev build.NET5](https://github.com/SaraCastro124/comidaApp2022/workflows/dev-build.NET5/badge.svg?branch=dev) ![dev test.NET5](https://github.com/SaraCastro124/comidaApp2022/workflows/dev-test.NET5/badge.svg?branch=dev)
 [![Abrir en Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/SaraCastro124/comidaApp2022)
 
 <h1 align="center">E.T. Nº12 D.E. 1º "Libertador Gral. José de San Martín"</h1>
@@ -7,7 +6,7 @@
   <img src="https://et12.edu.ar/imgs/et12.png">
 </p>
 
-## Computación 2021
+## Computación 2022
 
 **Asignatura**: Base de Datos
 
@@ -17,7 +16,7 @@
 
 **Curso**: 5° 7°
 
-# Título del Proyecto
+# ComidApp
 
 Crear una aplicacion que modele los pedidos a un restaurante
 ## Comenzando 🚀
@@ -35,11 +34,9 @@ git clone https://github.com/SaraCastro124/comidaApp2022
 
 ## Despliegue 📦
 
-_Agrega notas adicionales sobre que cosas se debe instalar, configurar y como hacer deploy_
+1. EJECUTAR EL SCRIPT _00-DDL.SQL_
 
 ## Construido con 🛠️
-
-_Menciona las herramientas y versiones que utilizaste para crear tu proyecto_
 
 * [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) - Editor de código.
 
