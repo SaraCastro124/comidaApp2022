@@ -1,4 +1,4 @@
-DROP DATABASE IF EXIST ComidApp;
+DROP DATABASE IF EXISTS ComidApp;
 CREATE DATABASE ComidApp;
 
 CREATE TABLE ComidApp.Restaurante (
@@ -31,26 +31,12 @@ CREATE TABLE ComidApp.Pedido(
     descripcion VARCHAR(50) NOT NULL,
     PRIMARY KEY (NroPedido),
     CONSTRAINT FK_Pedido_Restaurante FOREIGN KEY (idRestaurante)
+        REFERENCES ComidApp.Restaurante (idRestaurante),
     CONSTRAINT FK_Pedido_Cliente FOREIGN KEY (idCliente)
-    REFERENCES ComidApp.Restaurante (idRestaurante)
-    REFERENCES ComidApp.Cliente (idCliente)
+        REFERENCES ComidApp.Cliente (idCliente)
 );
 
-CREATE TABLE ComidApp.detallePedido ()
-    idPlato SMALLINT UNSIGNED NOT NULL,
-    NroPedido SMALLINT UNSIGNED NOT NULL,
-    Cantidad TINYINT UNSIGNED NOT NULL,
-    Precio DECIMAL(7,2) NOT NULL,
-    PRIMARY KEY (idPlato),
-    PRIMARY KEY (NroPedido),
-    CONSTRAINT FK_detallePedido_Plato FOREIGN KEY (idPlato)
-    CONSTRAINT FK_detallePedido_Pedido FOREIGN KEY (NroPedido)
-    REFERENCES ComidApp.Pedido (NroPedido)
-    REFERENCES ComidApp.Plato (idPlato)
-
-);
-
-CREATE TABLE Plato (
+CREATE TABLE ComidApp.Plato (
     nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
     idPlato SMALLINT UNSIGNED NOT NULL,
@@ -59,8 +45,17 @@ CREATE TABLE Plato (
     disponibilidad SMALLINT UNSIGNED NOT NULL,
     PRIMARY KEY (idPlato),
     CONSTRAINT FK_Plato_Restaurante FOREIGN KEY (idRestaurante)
-    REFERENCES ComidApp.Restaurante (idPlato )
-    CONSTRAINT FK_Plato_detallePedido FOREIGN KEY (idPlato)
-    REFERENCES ComidApp.detallePedido (idPlato)
+        REFERENCES ComidApp.Restaurante (idRestaurante)
 );
 
+CREATE TABLE ComidApp.detallePedido (
+    idPlato SMALLINT UNSIGNED NOT NULL,
+    NroPedido SMALLINT UNSIGNED NOT NULL,
+    Cantidad TINYINT UNSIGNED NOT NULL,
+    Precio DECIMAL(7,2) NOT NULL,
+    PRIMARY KEY (NroPedido, idPlato),
+    CONSTRAINT FK_detallePedido_Plato FOREIGN KEY (idPlato)
+        REFERENCES ComidApp.Plato (idPlato),
+    CONSTRAINT FK_detallePedido_Pedido FOREIGN KEY (NroPedido)
+        REFERENCES ComidApp.Pedido (NroPedido)
+);
