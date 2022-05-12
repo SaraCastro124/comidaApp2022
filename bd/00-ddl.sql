@@ -8,7 +8,8 @@ CREATE TABLE ComidApp.Restaurante (
     Domicilio VARCHAR (45) NOT NULL,
     Clave CHAR(64) NOT NULL,
     PRIMARY KEY (idRestaurante),
-    CONSTRAINT UQ_Restaurante_Email UNIQUE (Email)
+    CONSTRAINT UQ_Restaurante_Email UNIQUE (Email),
+    FULLTEXT (nombre)
 );
 
 CREATE TABLE ComidApp.Cliente (
@@ -45,7 +46,9 @@ CREATE TABLE ComidApp.Plato (
     disponibilidad SMALLINT UNSIGNED NOT NULL,
     PRIMARY KEY (idPlato),
     CONSTRAINT FK_Plato_Restaurante FOREIGN KEY (idRestaurante)
-        REFERENCES ComidApp.Restaurante (idRestaurante)
+        REFERENCES ComidApp.Restaurante (idRestaurante),
+    FULLTEXT (nombre),
+    FULLTEXT (descripcion)
 );
 
 CREATE TABLE ComidApp.detallePedido (
