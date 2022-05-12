@@ -6,7 +6,7 @@ DROP PROCEDURE IF EXISTS altaRestaurante $$
 CREATE PROCEDURE altaRestaurante (unIdRestaurante SMALLINT UNSIGNED, unEmail VARCHAR(45), unNombre VARCHAR(50), unDomicilio VARCHAR(45), UnaClave CHAR(64))
 BEGIN
 INSERT INTO Restaurante (idRestaurante, email, nombre, domicilio, clave)
-VALUES (unIdRestaurante, unEmail, unNombre, unDomicilio, UnaClave);
+VALUES (unIdRestaurante, unEmail, unNombre, unDomicilio, SHA2(UnaClave, 256));
 END $$
 
 DELIMITER $$
@@ -40,8 +40,7 @@ DROP PROCEDURE IF EXISTS registrarCliente $$
 CREATE PROCEDURE registrarCliente (unIdCliente SMALLINT UNSIGNED, unNombre VARCHAR(45), unApellido VARCHAR(50), unEmail VARCHAR(45), unaClave CHAR(64))
 BEGIN
 	INSERT INTO Cliente (idCLiente, nombre, apellido, email, clave)
-		VALUES (unIdCliente, unNombre, unApellido, unEmail, unaClave);
-	SELECT SHA2('clave', SHA256);
+		VALUES (unIdCliente, unNombre, unApellido, unEmail,  SHA2(UnaClave, 256));
 END $$
 
 -- 3 Se pide hacer el SF ‘gananciaResto’ que reciba por parámetro un identificador de restaurant y 2 fechas, se debe devolver la ganancia que tuvo ese resto entre esas 2 fechas (inclusive). GANANCIA = SUMATORIA (cantidad * precio unitario plato)
@@ -64,7 +63,7 @@ END $$
 -- 4 Se pide hacer el SP ‘Buscar’ que reciba por parámetro una cadena. El SP tiene que devolver los platos que contengan la cadena en su nombre, descripción o nombre del restaurante 
 
 DELIMITER $$
-DROP FUNCTION IF EXISTS Buscar $$
+DROP PROCEDURE IF EXISTS Buscar $$
 CREATE PROCEDURE Buscar (busqueda VARCHAR(50))
 BEGIN
     SELECT idPlato, descripcion, P.nombre, precioUnitario, idRestaurante, disponibilidad
