@@ -69,5 +69,6 @@ BEGIN
     SELECT idPlato, descripcion, P.nombre, precioUnitario, idRestaurante, disponibilidad
     FROM Plato P
     JOIN Restaurante R USING (idRestaurante)
-    WHERE MATCH(P.nombre, R.nombre, descripcion) AGAINST (busqueda);    
+    WHERE   MATCH(P.nombre, descripcion) AGAINST (busqueda IN BOOLEAN MODE)
+    OR      MATCH(R.nombre) AGAINST (busqueda IN BOOLEAN MODE);
 END $$ 

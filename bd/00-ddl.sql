@@ -47,8 +47,7 @@ CREATE TABLE ComidApp.Plato (
     PRIMARY KEY (idPlato),
     CONSTRAINT FK_Plato_Restaurante FOREIGN KEY (idRestaurante)
         REFERENCES ComidApp.Restaurante (idRestaurante),
-    FULLTEXT (nombre),
-    FULLTEXT (descripcion)
+    FULLTEXT (nombre, descripcion)
 );
 
 CREATE TABLE ComidApp.detallePedido (
