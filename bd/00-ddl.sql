@@ -61,3 +61,16 @@ CREATE TABLE ComidApp.detallePedido (
     CONSTRAINT FK_detallePedido_Pedido FOREIGN KEY (NroPedido)
         REFERENCES ComidApp.Pedido (NroPedido)
 );
+
+CREATE TABLE ComidAppp.VentaResto (
+    Monto Decimal (9,2) NOT NULL,
+    Anio SMALLINT UNSIGNED NOT NULL,
+    idPlato SMALLINT UNSIGNED NOT NULL,
+    Mes TINYINT UNSIGNED NOT NULL, 
+    idRestaurante SMALLINT UNSIGNED NOT NULL,
+    PRIMARY KEY (Anio, Mes, idPlato, idRestaurante),
+    CONSTRAINT FK_VentaResto_Plato  FOREIGN KEY (idPlato)
+        REFERENCES ComidApp.Plato (idPlato),
+    CONSTRAINT FK_VentaResto_Restaurante FOREIGN KEY (idRestaurante)
+        REFERENCES ComidApp.Restaurante (idRestaurante)
+);
