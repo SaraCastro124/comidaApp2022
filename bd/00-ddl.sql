@@ -62,7 +62,7 @@ CREATE TABLE ComidApp.detallePedido (
         REFERENCES ComidApp.Pedido (NroPedido)
 );
 
-CREATE TABLE ComidAppp.VentaResto (
+CREATE TABLE ComidApp.VentaResto (
     Monto Decimal (9,2) NOT NULL,
     Anio SMALLINT UNSIGNED NOT NULL,
     idPlato SMALLINT UNSIGNED NOT NULL,

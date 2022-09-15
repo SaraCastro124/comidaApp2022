@@ -15,20 +15,34 @@ BEGIN
         WHERE idPlato = new.idPlato;
         
         IF(EXISTS(SELECT * 
-				  FROM VentaResto
-                  WHERE idRestaurante = varIdResto
-                  AND Anio = varAnio
-                  AND idPlato = new.idPlato
-                  AND Mes = varMes )) THEN 
-                  UPDATE VentaResto
-                  SET monto = monto + new.precio * new.cantidad
-                  WHERE idRestaurante = varIdResto
-                  AND Anio = varAnio
-                  AND idPlato = new.idPlato
-                  AND Mes = varMes ;
+				FROM VentaResto
+                WHERE idRestaurante = varIdResto
+                AND Anio = varAnio
+                AND idPlato = new.idPlato
+                AND Mes = varMes )) THEN 
+                UPDATE VentaResto
+                SET monto = monto + new.precio * new.cantidad
+                WHERE idRestaurante = varIdResto
+                AND Anio = varAnio
+                AND idPlato = new.idPlato
+                AND Mes = varMes;
         ELSE
 			INSERT INTO ventaResto(anio, idPlato, mes, idRestaurante, monto)
 						VALUES(varAnio, new.idplato, varMes,  varIdResto, new.precio * new.cantidad);
         END IF;
 
+END $$
+
+-- 2 Se tiene que hacer un trigger para que cada vez que se elimine un plato de un pedido determinado, se decrementa el monto correspondiente en Venta.
+DELIMITER $$
+DROP TRIGGER IF EXISTS Plato $$
+CREATE TRIGGER AftDelPlato AFTER DELETE ON detallePedido
+FOR EACH ROW
+BEGIN
+    SELECT INTO 
+	UPDATE detallePedido
+    SET monto = monto - new.precio * new.cantidad
+    WHERE idPlato = new.idPlato 
+    AND Anio = varAnio
+    AND Mes = varMes; 
 END $$
