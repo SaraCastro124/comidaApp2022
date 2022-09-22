@@ -7,7 +7,7 @@ CREATE TRIGGER AftInsDetallePedido AFTER INSERT ON DetallePedido
 FOR EACH ROW
 BEGIN
 		DECLARE varAnio SMALLINT UNSIGNED DEFAULT YEAR(CURDATE());
-        DECLARE varMes SMALLINT UNSIGNED DEFAULT MONTH(CURDATE());
+        DECLARE varMes TINYINT UNSIGNED DEFAULT MONTH(CURDATE());
 		DECLARE varIdResto SMALLINT UNSIGNED;
 	
 		SELECT idRestaurante INTO varIdResto
@@ -39,8 +39,22 @@ DROP TRIGGER IF EXISTS Plato $$
 CREATE TRIGGER AftDelPlato AFTER DELETE ON detallePedido
 FOR EACH ROW
 BEGIN
-    SELECT INTO 
-	UPDATE detallePedido
+    DECLARE varCantidad TINYINT UNSIGNED;
+	DECLARE varAnio SMALLINT UNSIGNED DEFAULT YEAR(CURDATE());
+    DECLARE varMes TINYINT UNSIGNED DEFAULT MONTH(CURDATE());
+    DECLARE varMonto DECIMAL(9,2);
+    DECLARE varIdPlato SMALLINT UNSIGNED;
+    DECLARE varIdRestaurante SMALLINT UNSIGNED;
+
+    -- ABAJO NO esta bien lo de nroPedido, porque lo pueden obtener ya mediante OLD.NroPedido  >.<
+    SELECT idPlato, YEAR(FechaHora), MONTH(FechaHora), NroPedido INTO varCantidad, varResto, varNroPedido
+    FROM Pedido
+    WHERE idPlato = new.idPlato
+    AND NroPedido = new.NroPedido
+    AND Anio = new.Anio
+    AND Mes = new.Mes;
+
+	UPDATE VentaResto
     SET monto = monto - new.precio * new.cantidad
     WHERE idPlato = new.idPlato 
     AND Anio = varAnio
