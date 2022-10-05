@@ -7,5 +7,13 @@ namespace comidApp.Core
         public string Nombre { get; set; }
         public string Domicilio { get; set; }
         public string Clave { get; set; }
+        public Restaurante(ushort id, string email, string nombre, string domicilio, string clave)
+        {
+            this.Id = id;
+            this.Email = email;
+            this.Nombre = nombre;
+            this.Domicilio = domicilio;
+            this.Clave = clave;
+        }
     }
 }
