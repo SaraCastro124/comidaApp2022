@@ -39,24 +39,20 @@ DROP TRIGGER IF EXISTS Plato $$
 CREATE TRIGGER AftDelPlato AFTER DELETE ON detallePedido
 FOR EACH ROW
 BEGIN
-    DECLARE varCantidad TINYINT UNSIGNED;
-	DECLARE varAnio SMALLINT UNSIGNED DEFAULT YEAR(CURDATE());
-    DECLARE varMes TINYINT UNSIGNED DEFAULT MONTH(CURDATE());
-    DECLARE varMonto DECIMAL(9,2);
-    DECLARE varIdPlato SMALLINT UNSIGNED;
+	DECLARE varAnio SMALLINT UNSIGNED;
+    DECLARE varMes TINYINT UNSIGNED;
     DECLARE varIdRestaurante SMALLINT UNSIGNED;
 
     -- ABAJO NO esta bien lo de nroPedido, porque lo pueden obtener ya mediante OLD.NroPedido  >.<
-    SELECT idPlato, YEAR(FechaHora), MONTH(FechaHora), NroPedido INTO varCantidad, varResto, varNroPedido
-    FROM Pedido
-    WHERE idPlato = new.idPlato
-    AND NroPedido = new.NroPedido
-    AND Anio = new.Anio
-    AND Mes = new.Mes;
+    SELECT      YEAR(FechaHora), MONTH(FechaHora), idRestaurante
+    INTO        varAnio, varMes, varIdRestaurante
+    FROM        Pedido
+    WHERE       NroPedido = old.NroPedido;
 
-	UPDATE VentaResto
-    SET monto = monto - new.precio * new.cantidad
-    WHERE idPlato = new.idPlato 
-    AND Anio = varAnio
-    AND Mes = varMes; 
+	UPDATE      VentaResto
+    SET         monto = monto - Old.precio * Old.cantidad
+    WHERE       idPlato = Old.idPlato
+    AND         idRestaurante =  varIdRestaurante
+    AND         Anio = varAnio
+    AND         Mes = varMes; 
 END $$
