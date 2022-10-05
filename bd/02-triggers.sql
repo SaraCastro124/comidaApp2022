@@ -44,15 +44,15 @@ BEGIN
     DECLARE varIdRestaurante SMALLINT UNSIGNED;
 
     -- ABAJO NO esta bien lo de nroPedido, porque lo pueden obtener ya mediante OLD.NroPedido  >.<
-    SELECT      YEAR(FechaHora), MONTH(FechaHora), idRestaurante
-    INTO        varAnio, varMes, varIdRestaurante
-    FROM        Pedido
-    WHERE       NroPedido = old.NroPedido;
+    SELECT  YEAR(FechaHora), MONTH(FechaHora), idRestaurante
+    INTO    varAnio, varMes, varIdRestaurante
+    FROM    Pedido
+    WHERE   NroPedido = old.NroPedido;
 
-	UPDATE      VentaResto
-    SET         monto = monto - Old.precio * Old.cantidad
-    WHERE       idPlato = Old.idPlato
-    AND         idRestaurante =  varIdRestaurante
-    AND         Anio = varAnio
-    AND         Mes = varMes; 
+	UPDATE  VentaResto
+    SET     monto = monto - Old.precio * Old.cantidad
+    WHERE   idPlato = Old.idPlato
+    AND     idRestaurante =  varIdRestaurante
+    AND     Anio = varAnio
+    AND     Mes = varMes; 
 END $$
