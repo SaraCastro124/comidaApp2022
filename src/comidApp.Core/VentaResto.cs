@@ -7,6 +7,7 @@ namespace comidApp.Core
         public byte Mes { get; set; }
         public ushort IdRestaurante { get; set; }
         public double Monto { get; set; }
+        
         public VentaResto (ushort anio, ushort idPlato, byte mes, ushort idRestaurante, double monto)
         {
             this.Anio = anio;

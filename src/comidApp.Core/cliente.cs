@@ -7,8 +7,8 @@ namespace comidApp.Core
         public string Apellido { get; set; }
         public string Email { get; set; }
         public string Clave { get; set; }
-        public cliente(ushort id, string nombre, string apellido, string email, string clave)
 
+        public cliente(ushort id, string nombre, string apellido, string email, string clave)
         {
             this.Id = Id;
             this.Nombre = nombre;

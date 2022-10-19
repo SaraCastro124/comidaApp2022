@@ -8,6 +8,7 @@ namespace comidApp.Core
         public double PrecioUnitario { get; set; }
         public ushort IdRestaurante { get; set; } 
         public ushort Disponibilidad { get; set; }
+        
         public Plato (string nombre, string descripcion, ushort id, double precioUnitario, ushort idRestaurante, ushort disponibilidad)
         {
             this.Nombre = nombre;
