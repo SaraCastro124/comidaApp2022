@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comidApp.Core", "comidApp.Core\comidApp.Core.csproj", "{BD14C124-9DB0-4490-8355-89769A76B598}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comidApp.Adoet12", "comidApp.Adoet12\comidApp.Adoet12.csproj", "{89021130-103E-41B8-9C68-699E466E1658}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{BD14C124-9DB0-4490-8355-89769A76B598}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD14C124-9DB0-4490-8355-89769A76B598}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD14C124-9DB0-4490-8355-89769A76B598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89021130-103E-41B8-9C68-699E466E1658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89021130-103E-41B8-9C68-699E466E1658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89021130-103E-41B8-9C68-699E466E1658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89021130-103E-41B8-9C68-699E466E1658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
