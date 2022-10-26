@@ -1,6 +1,6 @@
 namespace comidApp.Core
 {
-    public class Restaurante
+    public class Restaurante : CosaPedido
     {
         public ushort Id { get; set; }
         public string Email { get; set; }
@@ -9,6 +9,7 @@ namespace comidApp.Core
         public string Clave { get; set; }
         
         public Restaurante(ushort id, string email, string nombre, string domicilio, string clave)
+            : base()
         {
             this.Id = id;
             this.Email = email;

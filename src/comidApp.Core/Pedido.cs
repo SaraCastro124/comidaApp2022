@@ -9,7 +9,7 @@ public class Pedido
     public  byte Opinion { get; set; }
     public string Descripcion { get; set; }
     
-    public Pedido (ushort id, ushort NroPedido, DateTime fechaHora, ushort idCliente, double precio, byte opinion, string descripcion )
+    public Pedido (ushort id, ushort NroPedido, DateTime fechaHora, ushort idCliente, double precio, byte opinion, string descripcion)
     {
         this.Id = id;
         this.NroPedido = NroPedido;

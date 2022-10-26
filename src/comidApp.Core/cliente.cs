@@ -1,6 +1,6 @@
-namespace comidApp.Core
-{
-    public class Cliente
+namespace comidApp.Core;
+
+    public class Cliente : CosaPedido
     {
         public ushort IdCliente { get; set; }
         public string Nombre { get; set; }
@@ -9,6 +9,7 @@ namespace comidApp.Core
         public string Clave { get; set; }
 
         public Cliente(ushort IdCliente, string nombre, string apellido, string email, string clave)
+            : base()
         {
             this.IdCliente = IdCliente;
             this.Nombre = nombre;
@@ -17,4 +18,3 @@ namespace comidApp.Core
             this.Clave = clave;
         }
     }
-}
