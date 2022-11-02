@@ -16,7 +16,7 @@ public class MapCliente : Mapeador<Cliente>
                 email: fila["email"].ToString()!,
                 clave: fila["clave"].ToString()!
             );
-
+            
     public void AltaCliente(Cliente cliente)
     {
         EjecutarComandoCon("altaCliente", ConfigurarAltaCliente, PostAltaCliente, cliente);
