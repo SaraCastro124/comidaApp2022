@@ -1,7 +1,7 @@
 ﻿namespace comidApp.Core;
 public class Pedido
 {
-    public ushort Id { get; set; }
+    public ushort IdPedido { get; set; }
     public ushort NroPedido { get; set; }
     public DateTime FechaHora { get; set; }
     public ushort IdCliente { get; set; }
@@ -9,9 +9,9 @@ public class Pedido
     public  byte Opinion { get; set; }
     public string Descripcion { get; set; }
     
-    public Pedido (ushort id, ushort NroPedido, DateTime fechaHora, ushort idCliente, double precio, byte opinion, string descripcion)
+    public Pedido (ushort idPedido, ushort NroPedido, DateTime fechaHora, ushort idCliente, double precio, byte opinion, string descripcion)
     {
-        this.Id = id;
+        this.IdPedido = idPedido;
         this.NroPedido = NroPedido;
         this.FechaHora = fechaHora;
         this.IdCliente = idCliente;

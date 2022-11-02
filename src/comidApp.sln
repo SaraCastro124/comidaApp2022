@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comidApp.Core", "comidApp.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comidApp.Adoet12", "comidApp.Adoet12\comidApp.Adoet12.csproj", "{89021130-103E-41B8-9C68-699E466E1658}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comidApp.Adoet12.Test", "comidApp.Adoet12.Test\comidApp.Adoet12.Test.csproj", "{33787C01-5EB9-494A-A165-3462D0D05D6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{89021130-103E-41B8-9C68-699E466E1658}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89021130-103E-41B8-9C68-699E466E1658}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89021130-103E-41B8-9C68-699E466E1658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33787C01-5EB9-494A-A165-3462D0D05D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33787C01-5EB9-494A-A165-3462D0D05D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33787C01-5EB9-494A-A165-3462D0D05D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33787C01-5EB9-494A-A165-3462D0D05D6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
