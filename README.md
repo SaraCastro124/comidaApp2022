@@ -12,7 +12,7 @@
 
 **Nombre TP**: ComidApp
 
-**Apellido y nombre Alumno**: Castro Sara, Sacaca Nayeli, Mendoza Liz
+**Apellido y nombre Alumno**: Castro Sara, Sacaca Nayeli, Chauque Abril
 
 **Curso**: 5° 7°
 
