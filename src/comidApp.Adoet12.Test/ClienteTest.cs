@@ -11,23 +11,20 @@ public class ClienteTest
     {
         var adoAGBD = FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test");
         Ado = new AdoComidApp(adoAGBD);
-
     }
     
     [Fact]
     public void registrarCliente()
     {
-        var cliente = new Cliente(2, "Sara", "Castro", "sara@gmail", "a3");
+        Cliente cliente = new Cliente(1000, "Sara", "Castro","sara@gmail.com", "s4");
         Ado.AltaCliente(cliente);
-        Assert.Equal(2, Cliente.IdCliente);
+        Assert.Equal(2, cliente.IdCliente);
     }
 
-    [Theory]
-    [InlineData(1, "Sara")]
-    public void TraerClientes()
+    [Fact]
+    public void TraerCliente()
     {
-        var Cliente = Ado.ObtenerCliente();
-        Assert.Contains(Cliente, c => c.IdCliente == IdCliente && c.Nombre == Nombre);
+        var clientes = Ado.ObtenerCliente();
+        Assert.Contains(clientes, c => c.IdCliente == 1 && c.Nombre == "Abril");
     }
-
 }

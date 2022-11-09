@@ -46,7 +46,7 @@ public class MapPedido : Mapeador<Pedido>
 
         BP.CrearParametro("idCliente")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
-        .SetValor(pedido.Cliente.IdCliente)
+        .SetValor(pedido.IdCliente)
         .AgregarParametro();
 
         BP.CrearParametro("precio")

@@ -19,7 +19,7 @@ END $$
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaPlato $$
-CREATE PROCEDURE altaPlato (unNombre VARCHAR(50), unaDescripcion VARCHAR(45), unIdPlato SMALLINT UNSIGNED, unPrecioUnitario DECIMAL(7,2), unIdRestaurante SMALLINT UNSIGNED, unaDisponibilidad SMALLINT UNSIGNED)
+CREATE PROCEDURE altaPlato (unNombre VARCHAR(50), unaDescripcion VARCHAR(45), OUT unIdPlato SMALLINT UNSIGNED, unPrecioUnitario DECIMAL(7,2), unIdRestaurante SMALLINT UNSIGNED, unaDisponibilidad SMALLINT UNSIGNED)
 
 BEGIN
 INSERT INTO Plato (nombre, descripcion, idPlato, precioUnitario, idRestaurante, disponibilidad)
@@ -37,10 +37,11 @@ END $$
 -- 2 Se pide hacer el SP ‘registrarCliente’ que reciba los datos del cliente. Es importante guardar encriptada la contraseña del cliente usando SHA256.
 DELIMITER $$
 DROP PROCEDURE IF EXISTS registrarCliente $$
-CREATE PROCEDURE registrarCliente (unIdCliente SMALLINT UNSIGNED, unNombre VARCHAR(45), unApellido VARCHAR(50), unEmail VARCHAR(45), unaClave CHAR(64))
+CREATE PROCEDURE registrarCliente (OUT unIdCliente SMALLINT UNSIGNED, unNombre VARCHAR(45), unApellido VARCHAR(50), unEmail VARCHAR(45), unaClave CHAR(64))
 BEGIN
-	INSERT INTO Cliente (idCLiente, nombre, apellido, email, clave)
-		VALUES (unIdCliente, unNombre, unApellido, unEmail,  SHA2(UnaClave, 256));
+	INSERT INTO Cliente ( nombre, apellido, email, clave)
+		VALUES ( unNombre, unApellido, unEmail,  SHA2(UnaClave, 256));
+    SET unIdCliente = LAST_INSERT_ID();
 END $$
 
 -- 3 Se pide hacer el SF ‘gananciaResto’ que reciba por parámetro un identificador de restaurant y 2 fechas, se debe devolver la ganancia que tuvo ese resto entre esas 2 fechas (inclusive). GANANCIA = SUMATORIA (cantidad * precio unitario plato)

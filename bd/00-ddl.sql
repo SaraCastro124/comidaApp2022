@@ -13,7 +13,7 @@ CREATE TABLE ComidApp.Restaurante (
 );
 
 CREATE TABLE ComidApp.Cliente (
-    idCliente SMALLINT UNSIGNED NOT NULL,
+    idCliente SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     Email VARCHAR (45) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE ComidApp.Pedido(
 );
 
 CREATE TABLE ComidApp.Plato (
-    nombre VARCHAR(50) NOT NULL,
+    nombre VARCHAR(50) NOT NULL AUTO_INCREMENT,
     descripcion VARCHAR(50) NOT NULL,
     idPlato SMALLINT UNSIGNED NOT NULL,
     precioUnitario DECIMAL(7,2) NOT NULL,
