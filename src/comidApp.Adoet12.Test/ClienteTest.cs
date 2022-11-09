@@ -19,13 +19,15 @@ public class ClienteTest
     {
         var cliente = new Cliente(2, "Sara", "Castro", "sara@gmail", "a3");
         Ado.AltaCliente(cliente);
-        Assert.Equal(2,"Sara", '');
+        Assert.Equal(2, Cliente.IdCliente);
     }
+
     [Theory]
-    [InlineData()]
+    [InlineData(1, "Sara")]
     public void TraerClientes()
     {
         var Cliente = Ado.ObtenerCliente();
-        Assert.Contains(Cliente, C =>)
+        Assert.Contains(Cliente, c => c.IdCliente == IdCliente && c.Nombre == Nombre);
     }
+
 }
