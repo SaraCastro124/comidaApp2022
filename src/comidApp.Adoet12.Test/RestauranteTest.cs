@@ -15,15 +15,15 @@ public class RestauranteTest
     [Fact]
     public void registrarRestaurante()
     {
-        Restaurante restaurante = new Restaurante(46, );
+        Restaurante restaurante = new Restaurante(46, "tucson@gmail.com", "Tucson", "Av. Cordoba", "mine_.763");
         Ado.AltaRestaurante(restaurante);
-        Assert.Equal(2, restaurante.idRestaurante);
+        Assert.Equal(1, restaurante.idRestaurante);
     }
 
     [Fact]
     public void TraerRestaurante()
     {
         var restaurantes = Ado.ObtenerRestaurante();
-        Assert.Contains(restaurantes, c => c.idRestaurante == 1 && c.Nombre == "Tucson");
+        Assert.Contains(restaurantes, r => r.idRestaurante == 1 && r.Nombre == "Tucson");
     }
 }

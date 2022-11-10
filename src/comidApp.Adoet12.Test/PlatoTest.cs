@@ -16,7 +16,7 @@ public class PlatoTest
     [Fact]
     public void registrarPlato()
     {
-        Plato plato = new Plato("frappuccino", "cafe con espuma y leche", 342, 300.50, );
+        Plato plato = new Plato("frappuccino", "cafe con espuma y leche", 342, 480,);
         Ado.AltaPlato(plato);
         Assert.Equal(2, plato.idPlato);
     }
@@ -24,7 +24,7 @@ public class PlatoTest
     [Fact]
     public void TraerPlato()
     {
-        var platos = Ado.ObtenerPlatos();
-        Assert.Contains(platos, p => p.IdPlato == 1 && p.Nombre == "Abril");
+        var platos = Ado.ObtenerPLatos();
+        Assert.Contains(platos, p => p.Nombre == p.Nombre && p.Descripcion == "cafe con espuma y leche");
     }
 }

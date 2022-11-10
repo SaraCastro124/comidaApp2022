@@ -3,7 +3,7 @@ use ComidApp;
 -- 1 Realizar los SP para dar de alta todas las entidades menos la tabla Cliente.
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaRestaurante $$
-CREATE PROCEDURE altaRestaurante (unIdRestaurante SMALLINT UNSIGNED, unEmail VARCHAR(45), unNombre VARCHAR(50), unDomicilio VARCHAR(45), UnaClave CHAR(64))
+CREATE PROCEDURE altaRestaurante (OUT unIdRestaurante SMALLINT UNSIGNED, unEmail VARCHAR(45), unNombre VARCHAR(50), unDomicilio VARCHAR(45), UnaClave CHAR(64))
 BEGIN
 INSERT INTO Restaurante (idRestaurante, email, nombre, domicilio, clave)
 VALUES (unIdRestaurante, unEmail, unNombre, unDomicilio, SHA2(UnaClave, 256));

@@ -21,19 +21,19 @@ namespace comidApp.Adoet12;
 
     public void AltaDetallePedido (detallePedido DetallePedido)
     {
-        EjecutarComandoCon("AltadetallePedido", ConfigurarAltaDetallePedido, PostAltaDetallePedido, DetallePedido);
+        EjecutarComandoCon("AltadetallePedido", ConfigurarAltaDetallePedido, DetallePedido);
     }
 
     private void ConfigurarAltaDetallePedido(detallePedido DetallePedido)
     {
         SetComandoSP("AltadetallePedido");
 
-        BP.CrearParametroSalida("unIdPlato")
+        BP.CrearParametro("unIdPlato")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .SetValor(DetallePedido.IdPlato)
         .AgregarParametro();
 
-        .BP.CrearParametro("unNroPedido")
+        BP.CrearParametro("unNroPedido")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .SetValor(DetallePedido.NroPedido)
         .AgregarParametro();
@@ -48,7 +48,4 @@ namespace comidApp.Adoet12;
         .SetValor(DetallePedido.Precio)
         .AgregarParametro();
     }
-
-    private void PostAltaDetallePedido(detallePedido DetallePedido)
-        => DetallePedido.IdPlato = Convert.ToUInt16(GetParametro("unIdPlato").Value);
 }
