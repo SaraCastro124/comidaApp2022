@@ -6,19 +6,19 @@ namespace comidApp.Adoet12.Test;
 
 public class PlatoTest
 {
-    public AdoComidApp Ado{get; set;}
+    public AdoComidApp Ado { get; set; }
     public PlatoTest()
     {
         var adoAGBD = FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test");
         Ado = new AdoComidApp(adoAGBD);
     }
-    
+
     [Fact]
     public void registrarPlato()
     {
-        Plato plato = new Plato("frappuccino", "cafe con espuma y leche", 342, 480,);
+        Plato plato = new Plato("frappuccino", "cafe con espuma y leche", 342, 480, 321, 169);
         Ado.AltaPlato(plato);
-        Assert.Equal(2, plato.idPlato);
+        Assert.Equal(1, plato.idPlato);
     }
 
     [Fact]

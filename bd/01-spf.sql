@@ -1,5 +1,7 @@
 use ComidApp;
 
+SELECT 'Creando SPFs' Estado;
+
 -- 1 Realizar los SP para dar de alta todas las entidades menos la tabla Cliente.
 
 DELIMITER $$
@@ -30,7 +32,7 @@ VALUES (
         SHA2(UnaClave, 256)
     );
 
-END $$
+END $$ 
 
 DELIMITER $$
 
@@ -66,7 +68,7 @@ VALUES (
         unaDescripcion
     );
 
-END $$
+END $$ 
 
 DELIMITER $$
 
@@ -99,7 +101,7 @@ VALUES (
         unaDisponibilidad
     );
 
-END $$
+END $$ 
 
 DELIMITER $$
 
@@ -149,8 +151,7 @@ VALUES (
         SHA2(UnaClave, 256)
     );
 
-SET
-    unIdCliente = LAST_INSERT_ID();
+SET unIdCliente = LAST_INSERT_ID();
 
 END $$ -- 3 Se pide hacer el SF ‘gananciaResto’ que reciba por parámetro un identificador de restaurant y 2 fechas, se debe devolver la ganancia que tuvo ese resto entre esas 2 fechas (inclusive). GANANCIA = SUMATORIA (cantidad * precio unitario plato)
 
@@ -196,4 +197,4 @@ WHERE
     MATCH(P.nombre, descripcion) AGAINST (busqueda IN BOOLEAN MODE)
     OR MATCH(R.nombre) AGAINST (busqueda IN BOOLEAN MODE);
 
-END $$
+END $$ 
