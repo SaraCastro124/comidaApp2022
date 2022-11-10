@@ -8,7 +8,7 @@ public class MapRestaurante : Mapeador<Restaurante>
 {
     public MapRestaurante(AdoAGBD ado) : base(ado)
         => Tabla = "Restaurante";
-        
+
     public override Restaurante ObjetoDesdeFila(DataRow fila)
             => new Restaurante(
             idRestaurante: Convert.ToByte(fila["IdRestaurante"]),
@@ -21,7 +21,6 @@ public class MapRestaurante : Mapeador<Restaurante>
     public void AltaRestaurante(Restaurante restaurante)
     {
         EjecutarComandoCon("AltaRestaurante", ConfigurarAltaRestaurante, PostAltaRestaurante, restaurante);
-    
     }
 
     private void ConfigurarAltaRestaurante(Restaurante restaurante)

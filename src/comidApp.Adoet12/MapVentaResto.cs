@@ -18,5 +18,41 @@ namespace comidApp.Adoet12
                 idRestaurante: Convert.ToUInt16(fila["idRestaurante"]),
                 monto: Convert.ToDouble(fila["monto"])
             );
+
+        public void AltaVentaResto(VentaResto ventaResto)
+        {
+            EjecutarComandoCon("AltaVentaResto", ConfigurarAltaVentaResto, ventaResto);
+        }
+        private void ConfigurarAltaVentaResto(VentaResto ventaResto)
+        {
+            SetComandoSP("AltaVentaResto");
+
+            BP.CrearParametro("unAnio")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
+            .SetValor(ventaResto.Anio)
+            .AgregarParametro();
+
+            BP.CrearParametro("unIdPlato")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
+            .SetValor(ventaResto.IdPlato)
+            .AgregarParametro();
+
+            BP.CrearParametro("unMes")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
+            .SetValor(ventaResto.Mes)
+            .AgregarParametro();
+
+            BP.CrearParametro("idRestaurante")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
+            .SetValor(ventaResto.IdRestaurante)
+            .AgregarParametro();
+
+            BP.CrearParametro("unMonto")
+            .SetTipoDecimal(9, 2)
+            .SetValor(ventaResto.Monto)
+            .AgregarParametro();
+
+        }
+
     }
 }

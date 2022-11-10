@@ -6,7 +6,7 @@ using et12.edu.ar.AGBD.Mapeadores;
 
 namespace comidApp.Adoet12;
 
-    public class MapDetallePedido : Mapeador<detallePedido>
+public class MapDetallePedido : Mapeador<detallePedido>
 {
     public MapDetallePedido(AdoAGBD ado) : base(ado)
         => Tabla = "detallePedido";
@@ -19,7 +19,7 @@ namespace comidApp.Adoet12;
         precio: Convert.ToDouble(fila["precio"])
     );
 
-    public void AltaDetallePedido (detallePedido DetallePedido)
+    public void AltaDetallePedido(detallePedido DetallePedido)
     {
         EjecutarComandoCon("AltadetallePedido", ConfigurarAltaDetallePedido, DetallePedido);
     }
@@ -39,12 +39,12 @@ namespace comidApp.Adoet12;
         .AgregarParametro();
 
         BP.CrearParametro("unaCantidad")
-        .SetTipo (MySql.Data.MySqlClient.MySqlDbType.UByte)
+        .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
         .SetValor(DetallePedido.Cantidad)
         .AgregarParametro();
 
         BP.CrearParametro("unPrecio")
-        .SetTipoDecimal(7,2)
+        .SetTipoDecimal(7, 2)
         .SetValor(DetallePedido.Precio)
         .AgregarParametro();
     }
