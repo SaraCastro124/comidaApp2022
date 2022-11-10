@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS ComidApp;
+SELECT 'Creando BD' Estado;
 CREATE DATABASE ComidApp;
 
 CREATE TABLE ComidApp.Restaurante (
@@ -9,7 +10,7 @@ CREATE TABLE ComidApp.Restaurante (
     Clave CHAR(64) NOT NULL,
     PRIMARY KEY (idRestaurante),
     CONSTRAINT UQ_Restaurante_Email UNIQUE (Email),
-    FULLTEXT (nombre)
+    FULLTEXT (Nombre)
 );
 
 CREATE TABLE ComidApp.Cliente (
@@ -23,7 +24,7 @@ CREATE TABLE ComidApp.Cliente (
 );
 
 CREATE TABLE ComidApp.Pedido(
-    idRestaurante SMALLINT UNSIGNED NOT NULL,
+    idRestaurante SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     NroPedido SMALLINT UNSIGNED NOT NULL,
     fechaHora DATETIME NOT NULL,
     idCliente SMALLINT UNSIGNED NOT NULL,
@@ -38,9 +39,9 @@ CREATE TABLE ComidApp.Pedido(
 );
 
 CREATE TABLE ComidApp.Plato (
-    nombre VARCHAR(50) NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
-    idPlato SMALLINT UNSIGNED NOT NULL,
+    idPlato SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     precioUnitario DECIMAL(7,2) NOT NULL,
     idRestaurante SMALLINT UNSIGNED NOT NULL,
     disponibilidad SMALLINT UNSIGNED NOT NULL,
