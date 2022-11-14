@@ -31,7 +31,7 @@ VALUES (
         unDomicilio,
         SHA2(UnaClave, 256)
     );
-
+    SET unIdRestaurante = LAST_INSERT_ID();
 END $$ 
 
 DELIMITER $$
@@ -87,7 +87,6 @@ INSERT INTO
     Plato (
         nombre,
         descripcion,
-        idPlato,
         precioUnitario,
         idRestaurante,
         disponibilidad
@@ -95,7 +94,6 @@ INSERT INTO
 VALUES (
         unNombre,
         unaDescripcion,
-        unIdPlato,
         unPrecioUnitario,
         unIdRestaurante,
         unaDisponibilidad
