@@ -6,25 +6,25 @@ using et12.edu.ar.AGBD.Mapeadores;
 
 namespace comidApp.Adoet12;
 
-public class MapDetallePedido : Mapeador<detallePedido>
+public class MapDetallePedido : Mapeador<DetallePedido>
 {
     public MapDetallePedido(AdoAGBD ado) : base(ado)
         => Tabla = "detallePedido";
 
-    public override detallePedido ObjetoDesdeFila(DataRow fila)
-        => new detallePedido(
+    public override DetallePedido ObjetoDesdeFila(DataRow fila)
+        => new DetallePedido(
         idPlato: Convert.ToUInt16(fila["id"]),
         NroPedido: Convert.ToUInt16(fila["NroPedido"]),
         cantidad: Convert.ToByte(fila["cantidad"]),
         precio: Convert.ToDouble(fila["precio"])
     );
 
-    public void AltaDetallePedido(detallePedido DetallePedido)
+    public void AltaDetallePedido(DetallePedido DetallePedido)
     {
         EjecutarComandoCon("AltadetallePedido", ConfigurarAltaDetallePedido, DetallePedido);
     }
 
-    private void ConfigurarAltaDetallePedido(detallePedido DetallePedido)
+    private void ConfigurarAltaDetallePedido(DetallePedido DetallePedido)
     {
         SetComandoSP("AltadetallePedido");
 
