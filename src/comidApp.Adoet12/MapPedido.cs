@@ -12,7 +12,7 @@ public class MapPedido : Mapeador<Pedido>
 
     public override Pedido ObjetoDesdeFila(DataRow fila)
         => new Pedido(
-            idPedido: Convert.ToByte(fila["idPedido"]),
+            idPedido: Convert.ToByte(fila["NroPedido"]),
             idCliente : Convert.ToUInt16(fila["idCliente"]),
             NroPedido: Convert.ToByte(fila["NroPedido"]),
             fechaHora: Convert.ToDateTime(fila["fechaHora"]),

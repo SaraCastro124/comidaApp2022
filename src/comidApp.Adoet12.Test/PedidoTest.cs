@@ -24,7 +24,7 @@ namespace comidApp.Adoet12.Test;
     public void TraerPedido()
     {
         var pedidos = Ado.ObtenerPedido();
-        Assert.Contains(pedidos, p => p.IdPedido == 1 && p. == "");
+        Assert.Contains(pedidos, p => p.IdPedido == 1 && p.descripcion == "leche descremada");
     }
 }
     
