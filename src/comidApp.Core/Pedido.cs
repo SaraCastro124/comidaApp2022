@@ -6,10 +6,10 @@ public class Pedido
     public DateTime FechaHora { get; set; }
     public ushort IdCliente { get; set; }
     public double Precio { get; set; }
-    public  byte Opinion { get; set; }
+    public  byte? Opinion { get; set; }
     public string Descripcion { get; set; }
     
-    public Pedido (ushort idPedido, ushort NroPedido, DateTime fechaHora, ushort idCliente, double precio, byte opinion, string descripcion)
+    public Pedido (ushort idPedido, ushort NroPedido, DateTime fechaHora, ushort idCliente, double precio, byte? opinion, string descripcion)
     {
         this.IdPedido = idPedido;
         this.NroPedido = NroPedido;
