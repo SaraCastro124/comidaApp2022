@@ -18,7 +18,7 @@ public class MapPedido : Mapeador<Pedido>
             fechaHora: Convert.ToDateTime(fila["fechaHora"]),
             precio: Convert.ToDouble(fila["precio"]),
             opinion: Convert.ToByte(fila["opinion"]),
-            descripcion: fila["descrpcion"].ToString()!
+            descripcion: fila["descripcion"].ToString()!
         );
     
     public void AltaPedido(Pedido pedido)

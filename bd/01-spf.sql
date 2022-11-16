@@ -41,7 +41,7 @@ DROP PROCEDURE
 CREATE PROCEDURE
     altaPedido (
         unIdRestaurante SMALLINT UNSIGNED,
-        unNroPedido SMALLINT UNSIGNED,
+        OUT unNroPedido SMALLINT UNSIGNED,
         unaFechaHora DATETIME,
         unIdCliente SMALLINT UNSIGNED,
         unPrecio DECIMAL(7, 2),
