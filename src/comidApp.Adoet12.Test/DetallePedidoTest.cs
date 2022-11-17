@@ -16,8 +16,6 @@ public class DetallePedidoTest
     [Fact]
     public void registrarDetallePedido()
     {
-        detallePedido DetallePedido = new detallePedido()
-        Ado.AltaDetallePedido(DetallePedido);
-        Assert.Equal
+
     }
 }
