@@ -31,8 +31,11 @@ VALUES (
         unDomicilio,
         SHA2(UnaClave, 256)
     );
-    SET unIdRestaurante = LAST_INSERT_ID();
-END $$ 
+
+SET
+    unIdRestaurante = LAST_INSERT_ID();
+
+END $$
 
 DELIMITER $$
 
@@ -51,7 +54,6 @@ CREATE PROCEDURE
 INSERT INTO
     Pedido (
         idRestaurante,
-        NroPedido,
         Fechahora,
         idCliente,
         Precio,
@@ -60,7 +62,6 @@ INSERT INTO
     )
 VALUES (
         unIdRestaurante,
-        unNroPedido,
         unaFechaHora,
         unIdCliente,
         unPrecio,
@@ -68,7 +69,10 @@ VALUES (
         unaDescripcion
     );
 
-END $$ 
+SET
+    unNroPedido = LAST_INSERT_ID();
+
+END $$
 
 DELIMITER $$
 
@@ -99,7 +103,10 @@ VALUES (
         unaDisponibilidad
     );
 
-END $$ 
+SET
+    unIdPlato = LAST_INSERT_ID();
+
+END $$
 
 DELIMITER $$
 
@@ -149,7 +156,8 @@ VALUES (
         SHA2(UnaClave, 256)
     );
 
-SET unIdCliente = LAST_INSERT_ID();
+SET
+    unIdCliente = LAST_INSERT_ID();
 
 END $$ -- 3 Se pide hacer el SF ‘gananciaResto’ que reciba por parámetro un identificador de restaurant y 2 fechas, se debe devolver la ganancia que tuvo ese resto entre esas 2 fechas (inclusive). GANANCIA = SUMATORIA (cantidad * precio unitario plato)
 
@@ -195,4 +203,4 @@ WHERE
     MATCH(P.nombre, descripcion) AGAINST (busqueda IN BOOLEAN MODE)
     OR MATCH(R.nombre) AGAINST (busqueda IN BOOLEAN MODE);
 
-END $$ 
+END $$

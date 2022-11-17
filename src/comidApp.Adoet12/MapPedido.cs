@@ -12,6 +12,7 @@ public class MapPedido : Mapeador<Pedido>
 
     public override Pedido ObjetoDesdeFila(DataRow fila)
         => new Pedido(
+            idRestaurante: Convert.ToByte(fila["idRestaurante"]),
             idPedido: Convert.ToByte(fila["NroPedido"]),
             idCliente : Convert.ToUInt16(fila["idCliente"]),
             NroPedido: Convert.ToByte(fila["NroPedido"]),
@@ -31,6 +32,10 @@ public class MapPedido : Mapeador<Pedido>
         SetComandoSP("AltaPedido");
 
         BP.CrearParametroSalida("unIdPedido")
+        .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
+        .AgregarParametro();
+
+        BP.CrearParametro("idRestaurante")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .AgregarParametro();
 

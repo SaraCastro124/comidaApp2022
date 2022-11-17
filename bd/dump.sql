@@ -78,9 +78,6 @@ CALL
     altaDetallePedido (
         @idfrappuccino,
         @NroPedido,
-        '2022-11-11',
-        @idAbril,
-        480,
-        10,
-        'leche descremada'
+        1,
+        480
     );

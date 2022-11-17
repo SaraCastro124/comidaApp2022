@@ -31,7 +31,6 @@ CREATE TABLE
     ComidApp.Pedido(
         idRestaurante SMALLINT UNSIGNED NOT NULL,
         NroPedido SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-,
         fechaHora DATETIME NOT NULL,
         idCliente SMALLINT UNSIGNED NOT NULL,
         precio DECIMAL(7, 2) NOT NULL,
