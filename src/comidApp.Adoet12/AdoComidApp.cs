@@ -25,10 +25,10 @@ public class AdoComidApp : IAdo
     public List<Cliente> ObtenerCliente()
         => MapCliente.ColeccionDesdeTabla();
     #endregion
-    
+
     #region Pedido
     public void AltaPedido(Pedido pedido)
-        =>MapPedido.AltaPedido(pedido);
+        => MapPedido.AltaPedido(pedido);
     public List<Pedido> ObtenerPedido()
         => MapPedido.ColeccionDesdeTabla();
     #endregion
@@ -43,9 +43,19 @@ public class AdoComidApp : IAdo
     #region Plato
 
     public void AltaPlato(Plato plato)
-        =>MapPlato.AltaPlato(plato);
+        => MapPlato.AltaPlato(plato);
 
     public List<Plato> ObtenerPLatos()
         => MapPlato.ColeccionDesdeTabla();
+
+    public void altaDetallePedido(DetallePedido detallePedido)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void AltaDetallePedido(DetallePedido detallePedido)
+    {
+        throw new NotImplementedException();
+    }
     #endregion
 }
