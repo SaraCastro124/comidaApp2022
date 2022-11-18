@@ -10,6 +10,7 @@ public class AdoComidApp : IAdo
     public MapPedido MapPedido { get; set; }
     public MapRestaurante MapRestaurante { get; set; }
     public MapPlato MapPlato { get; set; }
+    public MapDetallePedido MapDetalle { get; set; }
     public AdoComidApp(AdoAGBD ado)
     {
         Ado = ado;
@@ -17,6 +18,7 @@ public class AdoComidApp : IAdo
         MapPedido = new MapPedido(Ado);
         MapRestaurante = new MapRestaurante(Ado);
         MapPlato = new MapPlato(Ado);
+        MapDetalle = new MapDetallePedido(Ado);
     }
     #region Cliente
     public void AltaCliente(Cliente cliente)
@@ -47,15 +49,13 @@ public class AdoComidApp : IAdo
 
     public List<Plato> ObtenerPLatos()
         => MapPlato.ColeccionDesdeTabla();
-
-    public void altaDetallePedido(DetallePedido detallePedido)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void AltaDetallePedido(DetallePedido detallePedido)
-    {
-        throw new NotImplementedException();
-    }
     #endregion
+
+    #region DetallePedido
+    public void altaDetallePedido(DetallePedido detallePedido)
+        => MapDetalle.AltaDetallePedido(detallePedido);
+    public List<DetallePedido> ObtenerDetallePedido()
+        => MapDetalle.ColeccionDesdeTabla();
+    #endregion
+
 }
