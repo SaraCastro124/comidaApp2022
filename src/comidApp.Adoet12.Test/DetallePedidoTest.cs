@@ -17,15 +17,16 @@ public class DetallePedidoTest
     public void registrarDetallePedido()
     {
         DetallePedido detallePedido = new DetallePedido(5, 7, 1, 500);
-        Ado.AltaDetallePedido(detallePedido);
-        Assert.Equal(3, detallePedido.);
+        var cantidadDetalles = Ado.MapDetalle.FilasFiltradas("idPedido", 7).Count;
+        Ado.altaDetallePedido(detallePedido);
+        var nuevaCantidad = Ado.MapDetalle.FilasFiltradas("idPedido", 7).Count;
+        Assert.Equal(cantidadDetalles + 1, nuevaCantidad);
     }
 
     [Fact]
-
     public void TraerDetallePedido()
     {
         var detallePedidos = Ado.ObtenerDetallePedido();
-        Assert.Contains(detallePedidos, dp => dp.)
+        Assert.Contains(detallePedidos, dp => dp.IdPlato == 1 && dp.NroPedido == 3);
     }
 }
