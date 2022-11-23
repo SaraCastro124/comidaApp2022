@@ -27,6 +27,6 @@ public class DetallePedidoTest
     public void TraerDetallePedido()
     {
         var detallePedidos = Ado.ObtenerDetallePedido();
-        Assert.Contains(detallePedidos, dp => dp.IdPlato == 1 && dp.NroPedido == 3);
+        Assert.Contains(detallePedidos, dp => dp.IdPlato == 1 && dp.NroPedido == 7);
     }
 }
