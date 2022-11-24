@@ -16,10 +16,18 @@ public class DetallePedidoTest
     [Fact]
     public void registrarDetallePedido()
     {
-        DetallePedido detallePedido = new DetallePedido(5, 7, 1, 500);
-        var cantidadDetalles = Ado.MapDetalle.FilasFiltradas("idPedido", 7).Count;
+        ushort nroPedido = 1;
+        DetallePedido detallePedido =
+            new DetallePedido(idPlato: 3, NroPedido: nroPedido, cantidad: 1, precio: 500);
+
+        // cantidad de detalles antes de dar de alta
+        var cantidadDetalles = Ado.MapDetalle.FilasFiltradas("NroPedido", nroPedido).Count;
+
         Ado.altaDetallePedido(detallePedido);
-        var nuevaCantidad = Ado.MapDetalle.FilasFiltradas("idPedido", 7).Count;
+
+        // cantidad post alta
+        var nuevaCantidad = Ado.MapDetalle.FilasFiltradas("NroPedido", nroPedido).Count;
+
         Assert.Equal(cantidadDetalles + 1, nuevaCantidad);
     }
 
@@ -27,6 +35,6 @@ public class DetallePedidoTest
     public void TraerDetallePedido()
     {
         var detallePedidos = Ado.ObtenerDetallePedido();
-        Assert.Contains(detallePedidos, dp => dp.IdPlato == 1 && dp.NroPedido == 7);
+        Assert.Contains(detallePedidos, dp => dp.IdPlato == 2 && dp.NroPedido == 1);
     }
 }

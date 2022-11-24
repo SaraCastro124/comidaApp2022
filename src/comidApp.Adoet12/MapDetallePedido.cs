@@ -13,7 +13,7 @@ public class MapDetallePedido : Mapeador<DetallePedido>
 
     public override DetallePedido ObjetoDesdeFila(DataRow fila)
         => new DetallePedido(
-        idPlato: Convert.ToUInt16(fila["id"]),
+        idPlato: Convert.ToUInt16(fila["idPlato"]),
         NroPedido: Convert.ToUInt16(fila["NroPedido"]),
         cantidad: Convert.ToByte(fila["cantidad"]),
         precio: Convert.ToDouble(fila["precio"])

@@ -14,32 +14,32 @@ public class MapPedido : Mapeador<Pedido>
         => new Pedido(
             idRestaurante: Convert.ToByte(fila["idRestaurante"]),
             idPedido: Convert.ToByte(fila["NroPedido"]),
-            idCliente : Convert.ToUInt16(fila["idCliente"]),
+            idCliente: Convert.ToUInt16(fila["idCliente"]),
             NroPedido: Convert.ToByte(fila["NroPedido"]),
             fechaHora: Convert.ToDateTime(fila["fechaHora"]),
             precio: Convert.ToDouble(fila["precio"]),
             opinion: Convert.ToByte(fila["opinion"]),
             descripcion: fila["descripcion"].ToString()!
         );
-    
+
     public void AltaPedido(Pedido pedido)
     {
         EjecutarComandoCon("AltaPedido", ConfigurarAltaPedido, PostAltaPedido, pedido);
     }
-    
+
     private void ConfigurarAltaPedido(Pedido pedido)
     {
         SetComandoSP("AltaPedido");
 
-        BP.CrearParametroSalida("unIdPedido")
+        BP.CrearParametro("unIdPedido")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .AgregarParametro();
 
-        BP.CrearParametro("idRestaurante")
+        BP.CrearParametro("unidRestaurante")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .AgregarParametro();
 
-        BP.CrearParametro("unNroPedido")
+        BP.CrearParametroSalida("unNroPedido")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .SetValor(pedido.NroPedido)
         .AgregarParametro();
@@ -49,22 +49,22 @@ public class MapPedido : Mapeador<Pedido>
         .SetValor(pedido.FechaHora)
         .AgregarParametro();
 
-        BP.CrearParametro("idCliente")
+        BP.CrearParametro("unIdCliente")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .SetValor(pedido.IdCliente)
         .AgregarParametro();
 
-        BP.CrearParametro("precio")
+        BP.CrearParametro("unPrecio")
         .SetTipoDecimal(7, 2)
         .SetValor(pedido.Precio)
         .AgregarParametro();
 
-        BP.CrearParametro("opinion")
+        BP.CrearParametro("unaOpinion")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
         .SetValor(pedido.Opinion)
         .AgregarParametro();
 
-        BP.CrearParametro("descripcion")
+        BP.CrearParametro("unaDescripcion")
         .SetTipoVarchar(50)
         .SetValor(pedido.Descripcion)
         .AgregarParametro();

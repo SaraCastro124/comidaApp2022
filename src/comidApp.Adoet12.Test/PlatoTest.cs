@@ -16,9 +16,9 @@ public class PlatoTest
     [Fact]
     public void registrarPlato()
     {
-        Plato plato = new Plato("frappuccino", "cafe con espuma y leche", 342, 480, 321, 169);
+        Plato plato = new Plato("Te Frio", "Te con hielo", idPlato: 4, precioUnitario: 234, idRestaurante: 1, disponibilidad: 120);
         Ado.AltaPlato(plato);
-        Assert.Equal(1, plato.idPlato);
+        Assert.Equal(4, plato.idPlato);
     }
 
     [Fact]

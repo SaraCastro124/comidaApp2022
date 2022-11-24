@@ -30,7 +30,7 @@ public class MapPlato : Mapeador<Plato>
     {
         SetComandoSP("AltaPlato");
 
-        BP.CrearParametroSalida("unNombre")
+        BP.CrearParametro("unNombre")
         .SetTipoVarchar(50)
         .SetValor(plato.Nombre)
         .AgregarParametro();
@@ -40,7 +40,7 @@ public class MapPlato : Mapeador<Plato>
         .SetValor(plato.Descripcion)
         .AgregarParametro();
 
-        BP.CrearParametro("unIdPlato")
+        BP.CrearParametroSalida("unIdPlato")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .SetValor(plato.idPlato)
         .AgregarParametro();
@@ -50,7 +50,7 @@ public class MapPlato : Mapeador<Plato>
         .SetValor(plato.PrecioUnitario)
         .AgregarParametro();
 
-        BP.CrearParametroSalida("unIdRestaurante")
+        BP.CrearParametro("unIdRestaurante")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
         .SetValor(plato.IdRestaurante)
         .AgregarParametro();
