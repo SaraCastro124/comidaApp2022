@@ -13,7 +13,6 @@ public class MapPedido : Mapeador<Pedido>
     public override Pedido ObjetoDesdeFila(DataRow fila)
         => new Pedido(
             idRestaurante: Convert.ToByte(fila["idRestaurante"]),
-            idPedido: Convert.ToByte(fila["NroPedido"]),
             idCliente: Convert.ToUInt16(fila["idCliente"]),
             NroPedido: Convert.ToByte(fila["NroPedido"]),
             fechaHora: Convert.ToDateTime(fila["fechaHora"]),
@@ -31,17 +30,13 @@ public class MapPedido : Mapeador<Pedido>
     {
         SetComandoSP("AltaPedido");
 
-        BP.CrearParametro("unIdPedido")
-        .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
-        .AgregarParametro();
-
         BP.CrearParametro("unidRestaurante")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
+        .SetValor(pedido.idRestaurante)
         .AgregarParametro();
 
         BP.CrearParametroSalida("unNroPedido")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
-        .SetValor(pedido.NroPedido)
         .AgregarParametro();
 
         BP.CrearParametro("unaFechaHora")
@@ -71,5 +66,5 @@ public class MapPedido : Mapeador<Pedido>
     }
 
     private void PostAltaPedido(Pedido pedido)
-    => pedido.IdPedido = Convert.ToUInt16(GetParametro("unIdPedido").Value);
+    => pedido.NroPedido = Convert.ToUInt16(GetParametro("unNroPedido").Value);
 }

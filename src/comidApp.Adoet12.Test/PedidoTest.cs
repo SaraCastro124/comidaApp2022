@@ -17,16 +17,16 @@ public class PedidoTest
     {
         var tucson = Ado.MapRestaurante.FiltrarPorPK("idRestaurante", 2);
         Pedido pedido =
-            new Pedido(idRestaurante: 2, idPedido: 2, NroPedido: 2, DateTime.Now, idCliente: 2, precio: 550, opinion: 10, descripcion: "sin condimentos");
+            new Pedido(idRestaurante: 1, NroPedido: 1, DateTime.Now, idCliente: 1, precio: 550, opinion: 10, descripcion: "sin condimentos");
         Ado.AltaPedido(pedido);
-        Assert.Equal(1, pedido.IdPedido);
+        Assert.Equal(2, pedido.NroPedido);
     }
 
     [Fact]
     public void TraerPedido()
     {
         var pedidos = Ado.ObtenerPedido();
-        Assert.Contains(pedidos, p => p.IdPedido == 1 && p.Descripcion == "leche descremada");
+        Assert.Contains(pedidos, p => p.NroPedido == 1 && p.Descripcion == "leche descremada");
     }
 }
 
