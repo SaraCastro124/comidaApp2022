@@ -26,6 +26,11 @@ public class MapPlato : Mapeador<Plato>
         EjecutarComandoCon("AltaPlato", ConfigurarAltaPlato, PostAltaPlato, plato);
     }
 
+    public void Buscar()
+    {
+
+    }
+
     private void ConfigurarAltaPlato(Plato plato)
     {
         SetComandoSP("AltaPlato");
