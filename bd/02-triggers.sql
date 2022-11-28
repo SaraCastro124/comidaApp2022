@@ -4,7 +4,7 @@ SELECT 'Creando Triggers' Estado;
 
 -- 1 Se tiene que hacer un trigger para que cada vez que se inserte un plato en un pedido determinado, se incremente el monto correspondiente en Venta. En caso de que no exista tal registro, se tiene que crear.
 
-DELIMITER $$
+DELIMITER $$ 
 
 DROP TRIGGER IF EXISTS AftInsDetallePedido $$
 CREATE TRIGGER AftInsDetallePedido AFTER INSERT ON DetallePedido
