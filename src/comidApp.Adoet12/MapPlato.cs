@@ -26,9 +26,9 @@ public class MapPlato : Mapeador<Plato>
         EjecutarComandoCon("AltaPlato", ConfigurarAltaPlato, PostAltaPlato, plato);
     }
 // lo que hay q pasar son paramatros de tipo string//
-    public string Buscar()
+    public Buscar(string nombre)
     {
-        eje
+        this.nombre = nombre;
     }
 
     private void ConfigurarAltaPlato(Plato plato)
