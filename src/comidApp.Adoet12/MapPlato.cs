@@ -25,11 +25,19 @@ public class MapPlato : Mapeador<Plato>
     {
         EjecutarComandoCon("AltaPlato", ConfigurarAltaPlato, PostAltaPlato, plato);
     }
-// lo que hay q pasar son paramatros de tipo string//
-    public Buscar(string nombre)
+
+    public List<Plato> BuscarPlato(string nombre)
     {
-        this.nombre = nombre;
+        SetComandoSP("Buscar");
+
+        BP.CrearParametro("unIdPlato")
+        .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
+        .SetTipoVarchar(50)
+        .AgregarParametro();
+
+        return ColeccionDesdeSP();
     }
+
 
     private void ConfigurarAltaPlato(Plato plato)
     {
