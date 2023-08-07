@@ -26,6 +26,9 @@ public class MapPedido : Mapeador<Pedido>
         EjecutarComandoCon("AltaPedido", ConfigurarAltaPedido, PostAltaPedido, pedido);
     }
 
+    public async Task AltaPedidoAsync(Pedido pedido)
+        => await EjecutarComandoAsync("AltaPedido", ConfigurarAltaPedido, PostAltaPedido, pedido);
+
     private void ConfigurarAltaPedido(Pedido pedido)
     {
         SetComandoSP("AltaPedido");

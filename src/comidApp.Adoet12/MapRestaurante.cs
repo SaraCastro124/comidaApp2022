@@ -23,6 +23,9 @@ public class MapRestaurante : Mapeador<Restaurante>
         EjecutarComandoCon("AltaRestaurante", ConfigurarAltaRestaurante, PostAltaRestaurante, restaurante);
     }
 
+    public async Task AltaRestauranteAsync(Restaurante restaurante)
+        => await EjecutarComandoAsync("AltaRestaurante", ConfigurarAltaRestaurante, PostAltaRestaurante, restaurante);
+
     private void ConfigurarAltaRestaurante(Restaurante restaurante)
     {
         SetComandoSP("AltaRestaurante");

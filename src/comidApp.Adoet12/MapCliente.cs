@@ -22,6 +22,9 @@ public class MapCliente : Mapeador<Cliente>
         EjecutarComandoCon("altaCliente", ConfigurarAltaCliente, PostAltaCliente, cliente);
     }
 
+    public async Task AltaClienteAsync(Cliente cliente) 
+        => await EjecutarComandoAsync("altaCliente", ConfigurarAltaCliente, PostAltaCliente, cliente);
+
     private void ConfigurarAltaCliente(Cliente cliente)
     {
         SetComandoSP("registrarCliente");

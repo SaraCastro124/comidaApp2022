@@ -26,6 +26,9 @@ public class MapPlato : Mapeador<Plato>
         EjecutarComandoCon("AltaPlato", ConfigurarAltaPlato, PostAltaPlato, plato);
     }
 
+    public async Task AltaPlatoAsync(Plato plato)
+        => await EjecutarComandoAsync("AltaPlato", ConfigurarAltaPlato, PostAltaPlato, plato);
+
     public List<Plato> BuscarPlato(string nombre)
     {
         SetComandoSP("Buscar");
