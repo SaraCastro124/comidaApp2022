@@ -24,7 +24,7 @@ public class PlatoTest
     [Fact]
     public void TraerPlato()
     {
-        var platos = Ado.ObtenerPLatos();
+        var platos = Ado.ObtenerPlato();
         Assert.Contains(platos, p => p.Nombre == p.Nombre && p.Descripcion == "cafe con espuma y leche");
     }
 }

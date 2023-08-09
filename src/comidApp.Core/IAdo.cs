@@ -24,11 +24,6 @@ public interface IAdo
     List<Pedido> ObtenerPedido();
     Task<List<Pedido>> ObtenerPedidoAsync();
 
-    void AltaVentaResto(VentaResto ventaResto);
-    Task AltaVentaRestoAsync(VentaResto ventaResto);
-    List<VentaResto> ObtenerVentaResto();
-    Task<List<VentaResto>> ObtenerVentaRestoAsync();
-
     void AltaDetallePedido(DetallePedido detallePedido);
     Task AltaDetallePedidoAsync(DetallePedido detallePedido);
     List<DetallePedido> ObtenerDetallePedido();

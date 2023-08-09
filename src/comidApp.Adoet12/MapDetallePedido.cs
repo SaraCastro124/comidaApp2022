@@ -19,33 +19,37 @@ public class MapDetallePedido : Mapeador<DetallePedido>
         precio: Convert.ToDouble(fila["precio"])
     );
 
-    public void AltaDetallePedido(DetallePedido DetallePedido)
+    public void AltaDetallePedido(DetallePedido detallePedido)
     {
-        EjecutarComandoCon("AltadetallePedido", ConfigurarAltaDetallePedido, DetallePedido);
+        EjecutarComandoCon("AltadetallePedido", ConfigurarAltaDetallePedido, detallePedido);
     }
 
-    private void ConfigurarAltaDetallePedido(DetallePedido DetallePedido)
+    public async Task AltaDetallePedidoAsync(DetallePedido detallePedido)
+        => await EjecutarComandoAsync("AltadetallePedido", ConfigurarAltaDetallePedido, detallePedido);
+
+
+    private void ConfigurarAltaDetallePedido(DetallePedido detallePedido)
     {
         SetComandoSP("AltadetallePedido");
 
         BP.CrearParametro("unIdPlato")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
-        .SetValor(DetallePedido.IdPlato)
+        .SetValor(detallePedido.IdPlato)
         .AgregarParametro();
 
         BP.CrearParametro("unNroPedido")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
-        .SetValor(DetallePedido.NroPedido)
+        .SetValor(detallePedido.NroPedido)
         .AgregarParametro();
 
         BP.CrearParametro("unaCantidad")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
-        .SetValor(DetallePedido.Cantidad)
+        .SetValor(detallePedido.Cantidad)
         .AgregarParametro();
 
         BP.CrearParametro("unPrecio")
         .SetTipoDecimal(7, 2)
-        .SetValor(DetallePedido.Precio)
+        .SetValor(detallePedido.Precio)
         .AgregarParametro();
     }
 }

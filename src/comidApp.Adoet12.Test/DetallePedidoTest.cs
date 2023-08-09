@@ -23,7 +23,7 @@ public class DetallePedidoTest
         // cantidad de detalles antes de dar de alta
         var cantidadDetalles = Ado.MapDetalle.FilasFiltradas("NroPedido", nroPedido).Count;
 
-        Ado.altaDetallePedido(detallePedido);
+        Ado.AltaDetallePedido(detallePedido);
 
         // cantidad post alta
         var nuevaCantidad = Ado.MapDetalle.FilasFiltradas("NroPedido", nroPedido).Count;

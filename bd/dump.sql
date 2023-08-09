@@ -4,8 +4,7 @@ use ComidApp;
 
 SELECT 'Dump' Estado;
 
-CALL
-    altaRestaurante (
+CALL altaRestaurante (
         @idHavanna,
         'havanna@gmail.com',
         'Havanna',

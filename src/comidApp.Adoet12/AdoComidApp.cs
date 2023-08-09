@@ -23,7 +23,6 @@ public class AdoComidApp : IAdo
     #region Cliente
     public void AltaCliente(Cliente cliente)
         => MapCliente.AltaCliente(cliente);
-
     public List<Cliente> ObtenerCliente()
         => MapCliente.ColeccionDesdeTabla();
     #endregion
@@ -43,78 +42,41 @@ public class AdoComidApp : IAdo
     #endregion
 
     #region Plato
-
     public void AltaPlato(Plato plato)
         => MapPlato.AltaPlato(plato);
-
-    public List<Plato> ObtenerPLatos()
+    public List<Plato> ObtenerPlato()
         => MapPlato.ColeccionDesdeTabla();
     #endregion
 
     #region DetallePedido
-    public void altaDetallePedido(DetallePedido detallePedido)
+    public void AltaDetallePedido(DetallePedido detallePedido)
         => MapDetalle.AltaDetallePedido(detallePedido);
     public List<DetallePedido> ObtenerDetallePedido()
         => MapDetalle.ColeccionDesdeTabla();
+    #endregion
 
     public async Task AltaClienteAsync(Cliente cliente)
         => await MapCliente.AltaClienteAsync(cliente);
-
     public async Task<List<Cliente>> ObtenerClienteAsync()
         => await MapCliente.ColeccionDesdeTablaAsync();
 
     public async Task AltaRestauranteAsync(Restaurante restaurante)
         => await MapRestaurante.AltaRestauranteAsync(restaurante);
-
     public async Task<List<Restaurante>> ObtenerRestauranteAsync()
         => await MapRestaurante.ColeccionDesdeTablaAsync();
 
     public async Task AltaPlatoAsync(Plato plato)
         => await MapPlato.AltaPlatoAsync(plato);
-
     public async Task<List<Plato>> ObtenerPlatoAsync()
         => await MapPlato.ColeccionDesdeTablaAsync();
 
     public async Task AltaPedidoAsync(Pedido pedido)
         => await MapPedido.AltaPedidoAsync(pedido);
-
     public async Task<List<Pedido>> ObtenerPedidoAsync()
         => await MapPedido.ColeccionDesdeTablaAsync();
 
-    public async Task AltaVentaRestoAsync(VentaResto ventaResto)
-        =>
-
-    public Task AltaVentaRestoAsync(VentaResto ventaResto)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<VentaResto> ObtenerVentaResto()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<List<VentaResto>> ObtenerVentaRestoAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void AltaDetallePedido(DetallePedido detallePedido)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task AltaDetallePedidoAsync(DetallePedido detallePedido)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<List<DetallePedido>> ObtenerDetallePedidoAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-
-    #endregion
-
+    public async Task AltaDetallePedidoAsync(DetallePedido detallePedido)
+        => await MapDetalle.AltaDetallePedidoAsync(detallePedido);
+    public async Task<List<DetallePedido>> ObtenerDetallePedidoAsync()
+        => await MapDetalle.ColeccionDesdeTablaAsync();
 }
