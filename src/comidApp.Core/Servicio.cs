@@ -1,4 +1,4 @@
-using comidApp.Adoet12;
+using comidApp.Core;
 
 namespace comidApp.Core;
 
