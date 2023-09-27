@@ -41,11 +41,10 @@ public class Servicio
 
     public void AltaPlato(Plato plato)
     {
-        if(Plato.idPlato != 0)
+        if(plato.idPlato != 0)
             throw new ArgumentException("idPlato no puede ser distinto de cero");
 
         if (string.IsNullOrEmpty(plato.Descripcion)
-            || string.IsNullOrEmpty(plato.Disponibilidad)
             || string.IsNullOrEmpty(plato.Nombre)
         )
             throw new ArgumentException("Las cadenas no pueden estar vacias");
@@ -56,7 +55,7 @@ public class Servicio
 
     public void AltaPedido(Pedido pedido)
     {
-        if(Pedido.NroPedido != 0)
+        if(pedido.NroPedido != 0)
             throw new ArgumentException("NroPedido no puede ser distinto a cero");
         
         if (string.IsNullOrEmpty(pedido.Descripcion))

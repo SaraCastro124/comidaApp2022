@@ -14,20 +14,54 @@ public class ServicioTest
     }
 
     [Fact]
-    public void AltaCliente()
+    public void AltaClienteOK()
     {
         Cliente cliente = new Cliente(IdCliente: 0, nombre: "ojo", apellido: "hfsu", email: "gatito@gmail.com", clave: "123456");
         
         //TODO usar mock o crear el .json para conectarse la BD
-        var execp = Assert.Throws<InvalidOperationException>(()=>_servicio.AltaCliente(cliente));
+        _servicio.AltaCliente(cliente);
+        Assert.NotEqual(0, cliente.IdCliente);
     }
 
     [Fact]
-    public void AltaRestaurante()
+    public void AltaClienteFail()
     {
-        Restaurante restaurante = new Restaurante(idRestaurante: 2, email: "totoro@gmail.com", nombre: "Resto Totoro", domicilio: "dnfdjlk 127", clave: "123456");
+        Cliente cliente = new Cliente(IdCliente: 8, nombre: "", apellido: "", email: "gatito@gmail.com", clave: "123456");
+        
+        var execp = Assert.Throws<ArgumentException>(()=>_servicio.AltaCliente(cliente));
+    }
 
-        var execp = Assert.Throws<InvalidOperationException>(()=>_servicio.AltaRestaurante(restaurante));
+    [Fact]
+    public void AltaRestauranteOK()
+    {
+        Restaurante restaurante = new Restaurante(idRestaurante: 0, email: "totoro@gmail.com", nombre: "Resto Totoro", domicilio: "dnfdjlk 127", clave: "123456");
+
+        _servicio.AltaRestaurante(restaurante);
+        Assert.NotEqual(0, restaurante.idRestaurante);
+    }
+
+    [Fact]
+    public void AltaRestauranteFail()
+    {
+        Restaurante restaurante = new Restaurante(idRestaurante: 1, email: "", nombre: "Resto Totoro", domicilio: "dnfdjlk 127", clave: "123456");
+
+        var execp = Assert.Throws<ArgumentException>(()=>_servicio.AltaRestaurante(restaurante));
+    }
+
+    [Fact]
+    public void AltaPlatoOK()
+    {
+        Plato plato = new Plato(nombre: "Arroz con palta", descripcion: "Palta con arroz", idPlato: 0, precioUnitario: 135.78, idRestaurante: 2, disponibilidad: 5);
+
+        _servicio.AltaPlato(plato);
+        Assert.NotEqual(0, plato.idPlato);
+    }
+
+    [Fact]
+    public void AltaPlatoFail()
+    {
+        Plato plato = new Plato(nombre: "", descripcion: "Palta con arroz", idPlato: 1, precioUnitario: 135.78, idRestaurante: 0, disponibilidad: 8);
+        var execp = Assert.Throws<ArgumentException>(()=>_servicio.AltaPlato(plato));
     }
 
 }
