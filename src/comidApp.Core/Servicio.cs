@@ -33,10 +33,36 @@ public class Servicio
             || string.IsNullOrEmpty(restaurante.Nombre)
             || string.IsNullOrEmpty(restaurante.Domicilio)
         )
-            throw new ArgumentException("las cadenas no pueden estar vacias");
+            throw new ArgumentException("Las cadenas no pueden estar vacias");
 
         _ado.AltaRestaurante(restaurante);
     }
     public List<Restaurante> ObtenerRestaurante() => _ado.ObtenerRestaurante();
 
+    public void AltaPlato(Plato plato)
+    {
+        if(Plato.idPlato != 0)
+            throw new ArgumentException("idPlato no puede ser distinto de cero");
+
+        if (string.IsNullOrEmpty(plato.Descripcion)
+            || string.IsNullOrEmpty(plato.Disponibilidad)
+            || string.IsNullOrEmpty(plato.Nombre)
+        )
+            throw new ArgumentException("Las cadenas no pueden estar vacias");
+        
+        _ado.AltaPlato(plato);
+    }
+    public List<Plato> ObtenerPlato() => _ado.ObtenerPlato();
+
+    public void AltaPedido(Pedido pedido)
+    {
+        if(Pedido.NroPedido != 0)
+            throw new ArgumentException("NroPedido no puede ser distinto a cero");
+        
+        if (string.IsNullOrEmpty(pedido.Descripcion))
+            throw new ArgumentException("Las cadenas no pueden estar vacias");
+
+        _ado.AltaPedido(pedido);
+    }
+    public List<Pedido> ObtenerPedido() => _ado.ObtenerPedido();
 }

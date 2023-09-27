@@ -21,4 +21,13 @@ public class ServicioTest
         //TODO usar mock o crear el .json para conectarse la BD
         var execp = Assert.Throws<InvalidOperationException>(()=>_servicio.AltaCliente(cliente));
     }
+
+    [Fact]
+    public void AltaRestaurante()
+    {
+        Restaurante restaurante = new Restaurante(idRestaurante: 2, email: "totoro@gmail.com", nombre: "Resto Totoro", domicilio: "dnfdjlk 127", clave: "123456");
+
+        var execp = Assert.Throws<InvalidOperationException>(()=>_servicio.AltaRestaurante(restaurante));
+    }
+
 }
