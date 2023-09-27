@@ -64,4 +64,20 @@ public class ServicioTest
         var execp = Assert.Throws<ArgumentException>(()=>_servicio.AltaPlato(plato));
     }
 
+    [Fact]
+    public void AltaPedidoOK()
+    {
+        Pedido pedido = new Pedido(idRestaurante: 1, NroPedido: 0, fechaHora: DateTime.Now, idCliente: 1, precio: 27.22, opinion: 8, descripcion: "si");
+        
+        _servicio.AltaPedido(pedido);
+        Assert.NotEqual(0, pedido.NroPedido);
+    }
+
+    [Fact]
+    public void AltaPedidoFail()
+    {
+        Pedido pedido = new Pedido(idRestaurante: 1, NroPedido: 3, fechaHora: DateTime.Now, idCliente: 2, precio: 12.23, opinion: 2, descripcion: "");
+        var execp = Assert.Throws<ArgumentException>(()=>_servicio.AltaPedido(pedido));
+    }
+
 }
