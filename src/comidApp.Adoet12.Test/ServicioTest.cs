@@ -80,4 +80,19 @@ public class ServicioTest
         var execp = Assert.Throws<ArgumentException>(()=>_servicio.AltaPedido(pedido));
     }
 
+    [Fact]
+    public void AltaDetallePedidoOk()
+    {
+        DetallePedido detallePedido = new DetallePedido(idPlato: 1, NroPedido: 0, cantidad: 5, precio: 200);
+
+        _servicio.AltaDetallePedido(detallePedido);
+        Assert.NotEqual(0, detallePedido.idPlato);
+    }
+
+    [Fact]
+    public void AltaDetallePedidoFail()
+    {
+        DetallePedido detallePedido = new DetallePedido(idPlato: 2, NroPedido: 4, cantidad: 2, precio: 2000);
+        var execp = Assert.Throws<ArgumentException>(()=>_servicio.AltaDetallePedido(detallePedido));
+    }
 }
