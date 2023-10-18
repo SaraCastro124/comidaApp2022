@@ -37,7 +37,7 @@ public class Servicio
 
         _ado.AltaRestaurante(restaurante);
     }
-    public List<Restaurante> ObtenerRestaurante() => _ado.ObtenerRestaurante();
+    public List<Restaurante> ObtenerRestaurantes() => _ado.ObtenerRestaurante();
 
     public void AltaPlato(Plato plato)
     {
@@ -51,7 +51,7 @@ public class Servicio
 
         _ado.AltaPlato(plato);
     }
-    public List<Plato> ObtenerPlato() => _ado.ObtenerPlato();
+    public List<Plato> ObtenerPlatos() => _ado.ObtenerPlato();
 
     public void AltaPedido(Pedido pedido)
     {
@@ -63,7 +63,10 @@ public class Servicio
 
         _ado.AltaPedido(pedido);
     }
-    public List<Pedido> ObtenerPedido() => _ado.ObtenerPedido();
+    public List<Pedido> ObtenerPedidos() => _ado.ObtenerPedido();
 
-
+    //public void AltaDetallePedido(DetallePedido detallePedido)
+    //{
+      //  if (detallePedido.IdPlato != 0)
+    //}
 }
