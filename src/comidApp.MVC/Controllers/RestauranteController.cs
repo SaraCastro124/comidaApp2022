@@ -1,29 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using comidApp.Core;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
-namespace comidApp.MVC.Controllers
+namespace comidApp.MVC.Controllers;
+public class RestauranteController : Controller
 {
-    [Route("[controller]")]
-    public class RestauranteController : Controller
+    private readonly Servicio _servicio;
+    public RestauranteController(Servicio servicio) => _servicio = servicio;
+
+    [HttpGet]
+    public IActionResult Alta() => View();
+
+    [HttpPost]
+    public IActionResult Alta(Restaurante restaurante)
     {
-        private readonly ILogger<RestauranteController> _logger;
-
-        public RestauranteController()
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
-        }
+        //aca va la magia
+        throw new NotImplementedException();
     }
 }
