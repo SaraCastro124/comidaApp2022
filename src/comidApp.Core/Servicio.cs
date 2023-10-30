@@ -16,13 +16,15 @@ public class Servicio
         if (string.IsNullOrEmpty(cliente.Apellido)
             || string.IsNullOrEmpty(cliente.Nombre)
             || string.IsNullOrEmpty(cliente.Email)
+            || string.IsNullOrEmpty(cliente.Clave)
         )
             throw new ArgumentException("Las cadenas no puede estar vacias");
 
         _ado.AltaCliente(cliente);
     }
 
-    public List<Cliente> ObtenerCliente() => _ado.ObtenerCliente();
+
+    public List<Cliente> ObtenerClientes() => _ado.ObtenerCliente();
 
     public void AltaRestaurante(Restaurante restaurante)
     {
