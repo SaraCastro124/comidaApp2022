@@ -1,0 +1,39 @@
+@using comidApp.Core;
+@model Plato;
+@{
+    ViewData["Title"] = "Plato - AltaPlato";
+}
+
+<form asp-controller="Plato" asp-action="AltaPlato" method="post">
+    <div asp-validation-summary="All"></div>
+    <div><input type="hidden" asp-for="@Model.idPlato" /></div>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Nombre" class="col-form-label">Nombre</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Nombre" class="form-control" />
+        </div>
+    </div>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Descripcion" class="col-form-label">Descripcion</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Descripcion" class="form-control" />
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label asp-for="PrecioUnitario" class="col-form-label">PrecioUnitario</label>
+            </div>
+            <div class="col-auto">
+                <input asp-for="PrecioUnitario" class="form-control" />
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label asp-for="Disponibilidad" class="col-form-label">Disponibilidad</label>
+                </div>
+                <div class="col-auto">
+                    <input asp-for="Disponibilidad" class="form-control" />
+                </div>
+</form>
