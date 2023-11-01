@@ -1,12 +1,12 @@
 @using comidApp.Core;
-@model Plato;
+@model Cliente;
 @{
-    ViewData["Title"] = "Plato - AltaPlato";
+    ViewData["Title"] = "Cliente - AltaCliente";
 }
 
-<form asp-controller="Plato" asp-action="AltaPlato" method="post">
+<form asp-controller="Cliente" asp-action="AltaCliente" method="post">
     <div asp-validation-summary="All"></div>
-    <div><input type="hidden" asp-for="@Model.idPlato" /></div>
+    <div><input type="hidden" asp-for="@Model.IdCliente" /></div>
     <div class="row g-3 align-items-center">
         <div class="col-auto">
             <label asp-for="Nombre" class="col-form-label">Nombre</label>
@@ -17,24 +17,23 @@
     </div>
     <div class="row g-3 align-items-center">
         <div class="col-auto">
-            <label asp-for="Descripcion" class="col-form-label">Descripcion</label>
+            <label asp-for="Apellido" class="col-form-label">Apellido</label>
         </div>
         <div class="col-auto">
-            <input asp-for="Descripcion" class="form-control" />
+            <input asp-for="Apellido" class="form-control" />
         </div>
         <div class="row g-3 align-items-center">
             <div class="col-auto">
-                <label asp-for="PrecioUnitario" class="col-form-label">PrecioUnitario</label>
+                <label asp-for="Email" class="col-form-label">Email</label>
             </div>
             <div class="col-auto">
-                <input asp-for="PrecioUnitario" class="form-control" />
+                <input asp-for="Email" class="form-control" />
             </div>
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                    <label asp-for="Disponibilidad" class="col-form-label">Disponibilidad</label>
+                    <label asp-for="Clave" class="col-form-label">Clave</label>
                 </div>
                 <div class="col-auto">
-                    <input asp-for="Disponibilidad" class="form-control" />
+                    <input asp-for="Clave" class="form-control" />
                 </div>
-        <button type="button" class="btn btn-primary">Agregar Plato</button>
 </form>
