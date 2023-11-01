@@ -23,7 +23,6 @@ public class Servicio
         _ado.AltaCliente(cliente);
     }
 
-
     public List<Cliente> ObtenerClientes() => _ado.ObtenerCliente();
 
     public void AltaRestaurante(Restaurante restaurante)
