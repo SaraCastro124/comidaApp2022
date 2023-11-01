@@ -1,0 +1,39 @@
+@using comidApp.Core;
+@model Cliente;
+@{
+    ViewData["Title"] = "Cliente - AltaCliente";
+}
+
+<form asp-controller="Cliente" asp-action="AltaCliente" method="post">
+    <div asp-validation-summary="All"></div>
+    <div><input type="hidden" asp-for="@Model.IdCliente" /></div>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Nombre" class="col-form-label">Nombre</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Nombre" class="form-control" />
+        </div>
+    </div>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Apellido" class="col-form-label">Apellido</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Apellido" class="form-control" />
+    </div>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Email" class="col-form-label">Email</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Email" class="form-control" />
+        </div>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Clave" class="col-form-label">Clave</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Clave" class="form-control" />
+        </div>
+</form>

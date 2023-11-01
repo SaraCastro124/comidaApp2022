@@ -1,21 +1,19 @@
+using comidApp.Core;
 using Microsoft.AspNetCore.Mvc;
-namespace comidApp.MVC.Controllers;
 
+namespace comidApp.MVC.Controllers;
 public class ClienteController : Controller
 {
-    public ClienteController()
-    {
-        
-    }
+    private readonly Servicio _servicio;
+    public ClienteController(Servicio servicio) => _servicio = servicio;
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+    [HttpGet]
+    public IActionResult AltaCliente() => View();
 
-    public IActionResult Privacy()
+    [HttpPost]
+    public IActionResult AltaCliente(Cliente cliente)
     {
-        return View();
+        throw new NotImplementedException();
     }
 
 }
