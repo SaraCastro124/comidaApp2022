@@ -1,11 +1,8 @@
 using comidApp.Core;
 using Microsoft.AspNetCore.Mvc;
 
-using comidApp.Core;
-
 namespace comidApp.MVC.Controllers;
 
-namespace comidApp.MVC.Controllers;
 public class ClienteController : Controller
 {
     private readonly Servicio _servicio;

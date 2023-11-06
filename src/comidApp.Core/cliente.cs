@@ -17,4 +17,9 @@ namespace comidApp.Core;
             this.Email = email;
             this.Clave = clave;
         }
+
+        public Cliente()
+        {
+            
+        }
     }

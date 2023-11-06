@@ -13,6 +13,15 @@ public class PlatoController : Controller
     [HttpPost]
     public IActionResult AltaPlato(Plato plato)
     {
-        throw new NotImplementedException();
+        try
+        {
+            _servicio.AltaPlato(plato);
+            return RedirectToAction("Detalle", "Restaurante", plato.IdRestaurante);
+        }
+        catch (System.Exception)
+        {
+            return NotFound();
+            throw;
+        }
     }
 }

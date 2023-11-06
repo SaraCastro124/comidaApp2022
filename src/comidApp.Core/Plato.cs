@@ -18,6 +18,10 @@ namespace comidApp.Core
             this.IdRestaurante = idRestaurante;
             this.Disponibilidad = disponibilidad;
         }
-
+        // constructor para que el MVC funcione 
+        public Plato()
+        {
+            
+        }
     }
 }
