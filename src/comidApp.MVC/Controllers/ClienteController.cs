@@ -14,7 +14,16 @@ public class ClienteController : Controller
     [HttpPost]
     public IActionResult AltaCliente(Cliente cliente)
     {
-        throw new NotImplementedException();
+        try
+        {
+            _servicio.AltaCliente(cliente);
+            return RedirectToAction(nameof(AltaCliente));
+        }
+        catch (System.Exception)
+        {
+            return NotFound();
+            throw;
+        }
     }
 
 }

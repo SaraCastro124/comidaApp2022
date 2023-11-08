@@ -13,7 +13,11 @@ public class RestauranteController : Controller
     [HttpPost]
     public IActionResult Alta(Restaurante restaurante)
     {
-        //aca va la magia
-        throw new NotImplementedException();
+        try
+        {
+            _servicio.AltaRestaurante(restaurante);
+            
+        }
+        return NotFound();
     }
 }
