@@ -16,8 +16,13 @@ public class RestauranteController : Controller
         try
         {
             _servicio.AltaRestaurante(restaurante);
-            
+            return RedirectToAction(nameof(Alta));
         }
-        return NotFound();
+        catch (System.Exception)
+        {
+            return NotFound();
+            throw;
+        }
+        
     }
 }

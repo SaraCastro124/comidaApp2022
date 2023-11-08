@@ -17,5 +17,10 @@ namespace comidApp.Core
             this.Domicilio = domicilio;
             this.Clave = clave;
         }
+
+        public Restaurante()
+        {
+            
+        }
     }
 }
