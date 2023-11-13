@@ -1,4 +1,5 @@
 using comidApp.Core;
+using comidApp.MVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace comidApp.MVC.Controllers;
@@ -11,12 +12,13 @@ public class PlatoController : Controller
     public IActionResult AltaPlato() => View();
 
     [HttpPost]
-    public IActionResult AltaPlato(Plato plato)
+    public async Task<IActionResult> (PlatoViewModel platoVM)
     {
+        if ()
         try
         {
-            _servicio.AltaPlato(plato);
-            return RedirectToAction("Detalle", "Restaurante", plato.IdRestaurante);
+            _servicio.AltaPlato(platoVM);
+            return RedirectToAction("Detalle", "Restaurante", platoVM.IdRestaurante);
         }
         catch (System.Exception)
         {
