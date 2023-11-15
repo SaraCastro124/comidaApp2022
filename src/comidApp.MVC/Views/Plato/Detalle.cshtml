@@ -1,0 +1,15 @@
+@using comidApp.Core;
+@model Plato;
+@{
+    ViewData["Title"] = "Plato - AltaPlato";
+}
+
+<h1>@Model.Nombre</h1>
+
+<label>Descripcion: </label> @Model.Descripcion<br>
+
+<label>Disponibilidad: </label> @Model.Disponibilidad<br>
+
+<label>Precio: </label> $@Model.PrecioUnitario<br>
+
+<a asp-action="Listado">Listado Platos</a>

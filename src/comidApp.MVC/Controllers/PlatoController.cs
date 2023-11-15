@@ -8,22 +8,48 @@ public class PlatoController : Controller
     private readonly Servicio _servicio;
     public PlatoController(Servicio servicio) => _servicio = servicio;
 
+    public IActionResult Listado()
+    {
+        var platos = _servicio.ObtenerPlatos();
+        return View(platos);
+    }
+
     [HttpGet]
-    public IActionResult AltaPlato() => View();
+    public IActionResult AltaPlato()
+    {
+        var vmPlato = new PlatoViewModel(_servicio.ObtenerRestaurantes());
+        return View(vmPlato);
+    }
 
     [HttpPost]
-    public async Task<IActionResult> (PlatoViewModel platoVM)
+    public async Task<IActionResult> AltaPlato(PlatoViewModel platoVM)
     {
-        if ()
+        if (!ModelState.IsValid)
+            return View("AltaPlato", platoVM);
+
+        var plato = platoVM.Instancia;
+        
         try
         {
-            _servicio.AltaPlato(platoVM);
-            return RedirectToAction("Detalle", "Restaurante", platoVM.IdRestaurante);
+
+            _servicio.AltaPlato(plato);
         }
+
         catch (System.Exception)
         {
-            return NotFound();
             throw;
         }
+        return RedirectToAction(nameof(Detalle), new { id = plato.idPlato });
     }
+    public IActionResult Detalle(short id)
+    {
+        var plato = _servicio.ObtenerPlatos().FirstOrDefault(p => p.idPlato == id);
+
+        if (plato is null)
+        
+            return NotFound();
+
+        return View(plato);
+    }
+
 }

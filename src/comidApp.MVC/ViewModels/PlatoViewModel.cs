@@ -20,5 +20,11 @@ namespace comidApp.MVC.ViewModels
                                 dataTextField: nameof(Restaurante.Nombre),
                                 dataValueField: nameof(Restaurante.idRestaurante));
         }
+        public PlatoViewModel()
+        {
+            
+        }
+        public Plato Instancia
+            => new Plato (Nombre, Descripcion, idPlato, PrecioUnitario, IdRestaurante, Disponibilidad);
     }
 }

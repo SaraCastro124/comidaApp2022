@@ -1,0 +1,33 @@
+@using comidApp.Core;
+@model IEnumerable<Plato>;
+@{
+    ViewData["Title"] = "Plato - AltaPlato";
+}
+
+@if (Model.Count() != 0)
+{
+    <h3>Platos</h3>
+    <br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre: </th>
+                <th scope="col">Precio: </th>
+            </tr>
+        </thead>
+        <tbody class="" >
+            @foreach (var plato in Model)
+            {
+                <tr>
+                    <th scope="row"><a asp-action="Detalle" asp-route-Id="@plato.idPlato"> @plato.Nombre</a></th>
+                    <th scope="row"><a asp-action="Detalle" asp-route-Id="@plato.idPlato"> @plato.PrecioUnitario</a></th>
+                    @* <td><a asp-action="Detalle" asp-route-Id="@plato.idPlato">Detalle <i class="bi bi-eyeglasses" style="color: black;"></i></a></td> *@
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay platos cargados.</p>
+}
